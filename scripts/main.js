@@ -7,7 +7,7 @@ var norted = null; // ID associated to choosen character
 function init() {
     norted = loadStatus('norted');
 
-    if (norted === null) {
+    if (norted === null || norted === "null") {
         norted = generateNorted();
         saveStatus('norted', norted);
     }
@@ -26,7 +26,6 @@ function generateNorted() {
  */
 function buttonCheckIfNorted() {
     var result;
-    console.log(norted);
     switch (norted) {
         case '0':
             result = 'Sorry, <b>you are not</b> Xehanort.';
@@ -45,6 +44,15 @@ function buttonCheckIfNorted() {
 
     // Hide the button
     document.getElementById("resultButton").style.display = 'none';
+    document.getElementById("resultContainer").style.display = 'block';
+}
+
+function buttonRestart() {
+    norted = null;
+    saveStatus('norted', null);
+    init();
+    document.getElementById("resultButton").style.display = '';
+    document.getElementById("resultContainer").style.display = 'none';
 }
 
 /**

@@ -12,11 +12,15 @@
         <div>
             <h1>Are you Xehanort?</h1>
             <p>Discover if you are already <b>Xehanort</b> with this unique and advanced test.</p>
+
             <button id="resultButton" onclick="buttonCheckIfNorted()">Am I Xehanort?</button>
-            <div id="result"></div>
+            <div id="resultContainer" style="display: none">
+                <div id="result"></div>
+                <button onclick="buttonRestart()">Check again</button>
+            </div>
         </div>
 
-        <div>
+        <div class="external-links">
             <p>Stay tuned about Kingdom Hearts in <a href="http://khworld.org" target="_blank">KH World (Spanish)</a>.</p>
             <p>Developed by <a href="https://racs.es" target="_blank">Ruben Arroyo</a></p>
         </div>
