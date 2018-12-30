@@ -14,11 +14,17 @@
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/loader.css">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120009767-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-120009767-3');
+    </script>    
 </head>
 <body>
-    <!-- Load Facebook SDK for JavaScript -->
-    <div id="fb-root"></div>
-
     <div class="container">
         <div>
             <h1>Are you Xehanort?</h1>
@@ -35,10 +41,6 @@
             </div>
             <div class="shareButtons">
                 <div id="shareTwitterButton"></div>
-                <div class="fb-share-button"
-                    data-href="https://www.your-domain.com/your-page.html" 
-                    data-layout="button_count">
-                </div>
             </div>
         </div>
 
@@ -46,24 +48,10 @@
             <p>Stay tuned about Kingdom Hearts in <a href="http://khworld.org" target="_blank">KH World (Spanish)</a>.</p>
             <p>Developed by <a href="https://racs.es" target="_blank">Ruben Arroyo</a></p>
         </div>
-
-        <div class="ads">
-            <!-- AreYouXehanort -->
-            <ins class="adsbygoogle"
-                style="display:block"
-                data-ad-client="ca-pub-9518967693192415"
-                data-ad-slot="3330686839"
-                data-ad-format="auto"
-                data-full-width-responsive="true"
-            ></ins>
-        </div>
     </div>
 
     <!-- Scripts loading -->
     <script src="scripts/konami.js"></script>
     <script src="scripts/main.js"></script>
-    <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
 </body>
 </html>
