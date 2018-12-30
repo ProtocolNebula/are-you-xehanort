@@ -43,7 +43,7 @@ function buttonCheckIfNorted() {
         var result;
         switch (norted) {
             case '0':
-                result = 'Sorry, <b>you are not</b> Xehanort.';
+                result = 'Sorry, <b>you are not</b> Xehanort yet.';
                 break;
     
             case '1': // Xehanort
@@ -51,7 +51,7 @@ function buttonCheckIfNorted() {
                 break;
     
             case '2': // Master Xehanort (konami code)
-                result = 'Oh, sorry, i did not realaize that you are the <b>true Master Xehanort</b>.';
+                result = 'Oh sorry, I didn\'t realize that you are the <b>true Master Xehanort</b>.';
                 break;
         }
     

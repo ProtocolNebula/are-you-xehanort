@@ -3,6 +3,8 @@ html {
 }
 
 .container {
+    margin: 0 auto;
+    max-width: 600px;
     min-height: 97vh;
     display: flex;  
     flex-direction: column;
