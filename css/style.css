@@ -9,6 +9,10 @@ html {
     justify-content: space-around;
 }
 
+#loading {
+    margin: 20px 0;
+}
+
 #result {
     margin-top: 10px;
     font-size: 14pt;

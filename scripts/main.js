@@ -25,34 +25,66 @@ function generateNorted() {
  * Button that reveal if norted or not
  */
 function buttonCheckIfNorted() {
-    var result;
-    switch (norted) {
-        case '0':
-            result = 'Sorry, <b>you are not</b> Xehanort.';
-            break;
-
-        case '1': // Xehanort
-            result = 'Congratulations, <b>you are</b> Xehanort.';
-            break;
-
-        case '2': // Master Xehanort (konami code)
-            result = 'Oh, sorry, i did not realaize that you are the <b>true Master Xehanort</b>.';
-            break;
-    }
-
-    document.getElementById("result").innerHTML = result;
+    // Show loder
+    toogleLoader(true);
 
     // Hide the button
     document.getElementById("resultButton").style.display = 'none';
-    document.getElementById("resultContainer").style.display = 'block';
+
+    // Wait for a time to simulate checking
+    setTimeout(function() {
+        // Hide the loader
+        toogleLoader(false);
+
+        // If resutl still closed, load all
+        if (document.getElementById("resultContainer").style.display === 'block') return;
+        
+        var result;
+        switch (norted) {
+            case '0':
+                result = 'Sorry, <b>you are not</b> Xehanort.';
+                break;
+    
+            case '1': // Xehanort
+                result = 'Congratulations, <b>you are</b> Xehanort.';
+                break;
+    
+            case '2': // Master Xehanort (konami code)
+                result = 'Oh, sorry, i did not realaize that you are the <b>true Master Xehanort</b>.';
+                break;
+        }
+    
+        document.getElementById("result").innerHTML = result;
+    
+        // Show the result
+        document.getElementById("resultContainer").style.display = 'block';
+    }, 1500);
 }
 
+/**
+ * Willl show or hide the loader
+ * @param {boolean} newStatus 
+ */
+function toogleLoader(newStatus) {
+    document.getElementById("loading").style.display = (newStatus) ? 'block' : 'none';
+}
+
+/**
+ * Will hide all result-related
+ */
+function resetResult() {
+    document.getElementById("resultButton").style.display = '';
+    document.getElementById("resultContainer").style.display = 'none';
+}
+
+/**
+ * Restart the app and result
+ */
 function buttonRestart() {
     norted = null;
     saveStatus('norted', null);
     init();
-    document.getElementById("resultButton").style.display = '';
-    document.getElementById("resultContainer").style.display = 'none';
+    resetResult();
 }
 
 /**
@@ -82,8 +114,13 @@ function saveStatus(name, data) {
     } catch (e) {}
 }
 
+/**
+ * Initialize the konami code
+ */
 function initKonamiCode() {
     new Konami(function() {
+        if (norted === 2) return;
+        resetResult();
         norted = '2';
         saveStatus('norted', norted);
         buttonCheckIfNorted();

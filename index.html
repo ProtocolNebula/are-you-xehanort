@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Are you Xehanort?</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/loader.css">
 </head>
 <body>
     <div class="container">
@@ -14,6 +15,9 @@
             <p>Discover if you are already <b>Xehanort</b> with this unique and advanced test.</p>
 
             <button id="resultButton" onclick="buttonCheckIfNorted()">Am I Xehanort?</button>
+            <div id="loading" style="display: none">
+                Darkness <p class="loader"></p>
+            </div>
             <div id="resultContainer" style="display: none">
                 <div id="result"></div>
                 <button onclick="buttonRestart()">Check again</button>
