@@ -1,4 +1,5 @@
-var norted = null;
+var norted = null; // ID associated to choosen character
+// 0 = not norted, 1 = norted, 2 = master xehanort
 
 /**
  * Check if are already randomed and restore from storage
@@ -17,7 +18,7 @@ function init() {
  * @returns boolean True if norted
  */
 function generateNorted() {
-    return Math.floor(Math.random() * Math.floor(2)) === 1;
+    return Math.floor(Math.random() * Math.floor(2)).toString();
 }
 
 /**
@@ -25,11 +26,21 @@ function generateNorted() {
  */
 function buttonCheckIfNorted() {
     var result;
-    if (norted) {
-        result = 'Congratulations, <b>you are</b> Xehanort.';
-    } else {
-        result = 'Sorry, <b>you are not</b> Xehanort.';
+    console.log(norted);
+    switch (norted) {
+        case '0':
+            result = 'Sorry, <b>you are not</b> Xehanort.';
+            break;
+
+        case '1': // Xehanort
+            result = 'Congratulations, <b>you are</b> Xehanort.';
+            break;
+
+        case '2': // Master Xehanort (konami code)
+            result = 'Oh, sorry, i did not realaize that you are the <b>true Master Xehanort</b>.';
+            break;
     }
+
     document.getElementById("result").innerHTML = result;
 
     // Hide the button
@@ -63,7 +74,15 @@ function saveStatus(name, data) {
     } catch (e) {}
 }
 
+function initKonamiCode() {
+    new Konami(function() {
+        norted = '2';
+        saveStatus('norted', norted);
+        buttonCheckIfNorted();
+    });
+}
 
 // Initialize the app
 init();
+initKonamiCode();
 // buttonCheckIfNorted();
