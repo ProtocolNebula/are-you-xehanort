@@ -1,0 +1,15 @@
+html {
+    text-align: center;
+}
+
+.container {
+    min-height: 97vh;
+    display: flex;  
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#result {
+    margin-top: 10px;
+    font-size: 14pt;
+}
