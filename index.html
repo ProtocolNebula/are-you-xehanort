@@ -2,13 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Are you Xehanort?</title>
+    <meta name="description" content="Discover if you are Xehanort with this new and fast test that measure your Darkness.">
+
+    <meta property="og:url" content="https://areyouxehanort.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Are you Xehanort?" />
+    <meta property="og:description" content="Discover if you are Xehanort with this new and fast test that measure your Darkness." />
+
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/loader.css">
 </head>
 <body>
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+
     <div class="container">
         <div>
             <h1>Are you Xehanort?</h1>
@@ -18,9 +28,17 @@
             <div id="loading" style="display: none">
                 Darkness <p class="loader"></p>
             </div>
-            <div id="resultContainer" style="display: none">
+
+            <div id="resultContainer" style="visibility: hidden">
                 <div id="result"></div>
-                <button onclick="buttonRestart()">Check again</button>
+                <button id="checkAgainButton" onclick="buttonRestart()">Check again</button>
+            </div>
+            <div class="shareButtons">
+                <div id="shareTwitterButton"></div>
+                <div class="fb-share-button"
+                    data-href="https://www.your-domain.com/your-page.html" 
+                    data-layout="button_count">
+                </div>
             </div>
         </div>
 
@@ -29,7 +47,7 @@
             <p>Developed by <a href="https://racs.es" target="_blank">Ruben Arroyo</a></p>
         </div>
 
-        <div style="width: 500px; height: 200px;">
+        <div class="ads">
             <!-- AreYouXehanort -->
             <ins class="adsbygoogle"
                 style="display:block"
@@ -41,6 +59,7 @@
         </div>
     </div>
 
+    <!-- Scripts loading -->
     <script src="scripts/konami.js"></script>
     <script src="scripts/main.js"></script>
     <script>

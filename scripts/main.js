@@ -5,6 +5,7 @@ var norted = null; // ID associated to choosen character
  * Check if are already randomed and restore from storage
  */
 function init() {
+    generateShareButtons(); // Generate default twitter button
     norted = loadStatus('norted');
 
     if (norted === null || norted === "null") {
@@ -37,7 +38,7 @@ function buttonCheckIfNorted() {
         toogleLoader(false);
 
         // If resutl still closed, load all
-        if (document.getElementById("resultContainer").style.display === 'block') return;
+        if (document.getElementById("resultContainer").style.visibility === 'visible') return;
         
         var result;
         switch (norted) {
@@ -55,9 +56,10 @@ function buttonCheckIfNorted() {
         }
     
         document.getElementById("result").innerHTML = result;
+        generateShareButtons();
     
         // Show the result
-        document.getElementById("resultContainer").style.display = 'block';
+        document.getElementById("resultContainer").style.visibility = 'visible';
     }, 1500);
 }
 
@@ -74,7 +76,7 @@ function toogleLoader(newStatus) {
  */
 function resetResult() {
     document.getElementById("resultButton").style.display = '';
-    document.getElementById("resultContainer").style.display = 'none';
+    document.getElementById("resultContainer").style.visibility = 'hidden';
 }
 
 /**
@@ -127,7 +129,61 @@ function initKonamiCode() {
     });
 }
 
+function generateShareButtons() {
+    twitterText = encodeURI(getShareText());
+
+    result = `<a class="twitter-share-button" target="_blank"
+        href="https://twitter.com/intent/tweet?text=`+twitterText+`">
+            Tweet the result
+        </a>`;
+
+    document.getElementById('shareTwitterButton').innerHTML = result;
+}
+
+function getShareText() {
+    var result = '';
+    switch (norted) {
+        case '0':
+            result = 'I\'m not Xehanort. And you? ';
+            break;
+
+        case '1': // Xehanort
+            result = 'I\'m Xehanort. And you? ';
+            break;
+
+        case '2': // Master Xehanort (konami code)
+            result = 'I\'m the true Master Xehanort. And you? ';
+            break;
+
+        default:
+            result = 'Are you Xehanort? #AreYouXehanort';
+    }
+    
+    result += ' Check it in ' + siteUrl();
+
+    return result;
+}
+
+/**
+ * Get the main URL to the site
+ */
+function siteUrl() {
+    var getUrl = window.location;
+    return getUrl .protocol + "//" + getUrl.host + "/";
+}
+
+function initializeFacebook() {
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+        fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+}
+
 // Initialize the app
 init();
 initKonamiCode();
+initializeFacebook();
 // buttonCheckIfNorted();

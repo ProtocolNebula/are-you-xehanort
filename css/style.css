@@ -9,15 +9,37 @@ html {
     justify-content: space-around;
 }
 
+#checkAgainButton {
+    margin: 20px 0;
+}
+
 #loading {
     margin: 20px 0;
 }
 
 #result {
-    margin-top: 10px;
+    margin: 10px 0;
     font-size: 14pt;
 }
 
 .external-links {
     margin: 20px 0;
+}
+
+.shareButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.shareButtons > div {
+    display: inline-block;
+    margin: 10px;
+}
+
+.ads {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 800px;
+    max-height: 300px;
+    text-align: center;
 }
