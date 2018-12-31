@@ -8,13 +8,13 @@ function init() {
     generateShareButtons(); // Generate default twitter button
     norted = loadStatus('norted');
 
-    if (norted === null || norted === "null") {
-        norted = generateNorted();
-        saveStatus('norted', norted);
+    if (norted !== null && norted !== "null") {
+        buttonCheckIfNorted(100);
     }
 }
 
 /**buttonCheckIfNorted()
+
  * Generate if norted or not
  * @returns boolean True if norted
  */
@@ -25,7 +25,14 @@ function generateNorted() {
 /**
  * Button that reveal if norted or not
  */
-function buttonCheckIfNorted() {
+function buttonCheckIfNorted(miliseconds) {
+    if (miliseconds === undefined) miliseconds = 1300;
+    
+    if (norted === null || norted === "null") {
+        norted = generateNorted();
+        saveStatus('norted', norted);
+    }
+
     // Show loder
     toogleLoader(true);
 
@@ -60,7 +67,7 @@ function buttonCheckIfNorted() {
     
         // Show the result
         document.getElementById("resultContainer").style.visibility = 'visible';
-    }, 1500);
+    }, miliseconds);
 }
 
 /**
