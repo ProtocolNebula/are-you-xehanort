@@ -45,7 +45,7 @@ function buttonCheckIfNorted(miliseconds) {
         toogleLoader(false);
 
         // If resutl still closed, load all
-        if (document.getElementById("resultContainer").style.visibility === 'visible') return;
+        if (document.getElementById("resultContainer").style.display === 'block') return;
         
         var result;
         switch (norted) {
@@ -66,7 +66,7 @@ function buttonCheckIfNorted(miliseconds) {
         generateShareButtons();
     
         // Show the result
-        document.getElementById("resultContainer").style.visibility = 'visible';
+        document.getElementById("resultContainer").style.display = 'block';
     }, miliseconds);
 }
 
@@ -83,7 +83,7 @@ function toogleLoader(newStatus) {
  */
 function resetResult() {
     document.getElementById("resultButton").style.display = '';
-    document.getElementById("resultContainer").style.visibility = 'hidden';
+    document.getElementById("resultContainer").style.display = 'none';
 }
 
 /**
