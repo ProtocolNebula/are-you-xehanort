@@ -166,7 +166,7 @@ function getShareText() {
             result = 'Are you Xehanort?';
     }
     
-    result += ' Check it in ' + siteUrl() + ' #AreYouXehanort #KingdomHearts';
+    result += ' Check it in ' + siteUrl() + ' &num;AreYouXehanort &num;KingdomHearts';
 
     return result;
 }
