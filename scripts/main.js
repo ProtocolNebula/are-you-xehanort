@@ -163,10 +163,10 @@ function getShareText() {
             break;
 
         default:
-            result = 'Are you Xehanort? #AreYouXehanort';
+            result = 'Are you Xehanort?';
     }
     
-    result += ' Check it in ' + siteUrl();
+    result += ' Check it in ' + siteUrl() + ' #AreYouXehanort #KingdomHearts';
 
     return result;
 }
