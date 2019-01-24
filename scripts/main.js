@@ -50,15 +50,17 @@ function buttonCheckIfNorted(miliseconds) {
         var result;
         switch (norted) {
             case '0':
-                result = 'Sorry, <b>you are not</b> Xehanort yet.';
+                result = 'Congratulations, you are not Xehanort yet.<br />'+
+                    'But don\'t worry, darkness will soon overtake you so you can bask in its glory.';
                 break;
     
             case '1': // Xehanort
-                result = 'Congratulations, <b>you are</b> Xehanort.';
+                result = 'Sorry, you already <b>are Xehanort</b>.<br />'+
+                'But that was inevitable, wasn\'t it? After all, everybody will sooner or later be taken over by darkness. Why wait?';
                 break;
     
             case '2': // Master Xehanort (konami code)
-                result = 'Oh sorry, I didn\'t realize that you are the <b>true Master Xehanort</b>.';
+                result = 'Sorry, I didn\'t realize that you were the <b>true Master Xehanort</b>.';
                 break;
         }
     
@@ -141,7 +143,7 @@ function generateShareButtons() {
 
     result = `<a class="twitter-share-button" target="_blank"
         href="https://twitter.com/intent/tweet?text=`+twitterText+`">
-            Tweet the result
+            Tweet the darkness
         </a>`;
 
     document.getElementById('shareTwitterButton').innerHTML = result;
