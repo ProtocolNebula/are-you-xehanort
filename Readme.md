@@ -2,7 +2,7 @@
 
 This is a Joke Web that told if you are or not Xehanort.
 
-You can try it in: http://areyouxehanort.com/
+You can try it in: https://protocolnebula.github.io/are-you-xehanort/
 
 This also add the Konami Code compatible with mobile phones (https://github.com/snaptortoise/konami-js).
 
